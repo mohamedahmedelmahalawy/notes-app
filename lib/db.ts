@@ -4,7 +4,10 @@ const MONGODB_URI: string | undefined = process.env.MONGODB_URL;
 
 let isConnected = false;
 async function dbConnect() {
-  if (!MONGODB_URI) throw Error("No DB");
+  if (!MONGODB_URI) {
+    console.warn("MONGODB_URL is not set. Database operations will not work.");
+    return;
+  }
 
   if (isConnected) {
     console.log("Already connected to Mongodb");
