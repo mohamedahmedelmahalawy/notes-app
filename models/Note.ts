@@ -1,6 +1,6 @@
 import mongoose, { Document, Model } from "mongoose";
 
-interface NoteDocument extends Document {
+export interface NoteDocument extends Document {
   title: string;
   content: string;
   createdAt: Date;
